@@ -12,7 +12,10 @@ unsigned char *read_pgm(const char *filename, int *width, int *height) {
     if (!fp) { fprintf(stderr, "Cannot open %s\n", filename); return NULL; }
 
     char magic[3];
-    fscanf(fp, "%2s", magic);
+    if (fscanf(fp, "%2s", magic) != 1) {
+        fprintf(stderr, "Failed to read PGM magic number\n");
+        fclose(fp); return NULL;
+    }
     if (strcmp(magic, "P5") != 0) {
         fprintf(stderr, "Not a binary PGM file\n");
         fclose(fp); return NULL;
@@ -27,13 +30,19 @@ unsigned char *read_pgm(const char *filename, int *width, int *height) {
     ungetc(c, fp);
 
     int maxval;
-    fscanf(fp, "%d %d %d", width, height, &maxval);
+    if (fscanf(fp, "%d %d %d", width, height, &maxval) != 3) {
+        fprintf(stderr, "Failed to read PGM header\n");
+        fclose(fp); return NULL;
+    }
     fgetc(fp);
 
     size_t npix = (size_t)(*width) * (*height);
     unsigned char *data = (unsigned char *)malloc(npix);
     if (!data) { fclose(fp); return NULL; }
-    fread(data, 1, npix, fp);
+    if (fread(data, 1, npix, fp) != npix) {
+        fprintf(stderr, "Failed to read PGM pixel data\n");
+        free(data); fclose(fp); return NULL;
+    }
     fclose(fp);
     return data;
 }
