@@ -1,0 +1,302 @@
+[
+  {
+    "product_id": "P001",
+    "title": "Ceramic Coffee Mug 12oz White",
+    "category": "Kitchen & Dining",
+    "description": "Classic white ceramic coffee mug with comfortable handle. Microwave and dishwasher safe. Perfect for your morning coffee or tea."
+  },
+  {
+    "product_id": "P002",
+    "title": "Stainless Steel Travel Tumbler 20oz",
+    "category": "Kitchen & Dining",
+    "description": "Double-wall vacuum insulated stainless steel tumbler. Keeps drinks hot 12 hours or cold 24 hours. BPA-free lid."
+  },
+  {
+    "product_id": "P003",
+    "title": "Cast Iron Skillet 10-inch Pre-seasoned",
+    "category": "Kitchen & Dining",
+    "description": "Pre-seasoned cast iron skillet for stovetop, oven, and campfire cooking. Even heat distribution. Builds natural non-stick patina with use."
+  },
+  {
+    "product_id": "P004",
+    "title": "Bamboo Cutting Board with Juice Groove",
+    "category": "Kitchen & Dining",
+    "description": "Extra-large bamboo cutting board with deep juice groove to catch liquids. Gentle on knife blades. Eco-friendly and sustainable."
+  },
+  {
+    "product_id": "P005",
+    "title": "French Press Coffee Maker 34oz Glass",
+    "category": "Kitchen & Dining",
+    "description": "Borosilicate glass French press with stainless steel plunger. Brews rich, full-bodied coffee in 4 minutes. Heat-resistant handle."
+  },
+  {
+    "product_id": "P006",
+    "title": "Running Shoes Lightweight Mesh Men's",
+    "category": "Footwear",
+    "description": "Ultra-lightweight breathable mesh running shoes with cushioned sole. Flexible rubber outsole provides grip on all surfaces."
+  },
+  {
+    "product_id": "P007",
+    "title": "Leather Wallet Slim Bifold RFID Blocking",
+    "category": "Accessories",
+    "description": "Genuine top-grain leather slim bifold wallet with RFID blocking technology. 6 card slots, 2 cash compartments. Minimalist design."
+  },
+  {
+    "product_id": "P008",
+    "title": "Wireless Bluetooth Headphones Over-Ear",
+    "category": "Electronics",
+    "description": "Premium over-ear wireless headphones with active noise cancellation. 30-hour battery life. Foldable design for travel. Hi-Fi stereo sound."
+  },
+  {
+    "product_id": "P009",
+    "title": "Mechanical Keyboard TKL RGB Backlit",
+    "category": "Electronics",
+    "description": "Tenkeyless mechanical keyboard with RGB backlight and tactile switches. N-key rollover for gaming. Aluminum top plate construction."
+  },
+  {
+    "product_id": "P010",
+    "title": "USB-C Hub 7-in-1 Multiport Adapter",
+    "category": "Electronics",
+    "description": "7-in-1 USB-C hub with 4K HDMI, USB 3.0 x3, SD card reader, and 100W PD charging. Compatible with MacBook and Windows laptops."
+  },
+  {
+    "product_id": "P011",
+    "title": "Yoga Mat Non-Slip 6mm Thick",
+    "category": "Sports & Fitness",
+    "description": "Premium 6mm thick yoga mat with non-slip texture and alignment lines. Extra-wide 72x24 inches. Includes carry strap. Eco-friendly TPE material."
+  },
+  {
+    "product_id": "P012",
+    "title": "Adjustable Dumbbell Set 5-52.5 lbs",
+    "category": "Sports & Fitness",
+    "description": "Space-saving adjustable dumbbells that replace 15 sets of weights. Quick dial adjustment from 5 to 52.5 lbs. Ergonomic handle design."
+  },
+  {
+    "product_id": "P013",
+    "title": "Resistance Bands Set 5-Pack Heavy Duty",
+    "category": "Sports & Fitness",
+    "description": "Set of 5 latex resistance bands from light to extra heavy resistance. Great for strength training, yoga, and physical therapy."
+  },
+  {
+    "product_id": "P014",
+    "title": "Stainless Steel Water Bottle 32oz BPA Free",
+    "category": "Sports & Fitness",
+    "description": "Vacuum insulated stainless steel water bottle keeps drinks cold 24 hours, hot 12 hours. Wide mouth opening, leak-proof lid."
+  },
+  {
+    "product_id": "P015",
+    "title": "Laptop Backpack 15.6-inch Waterproof",
+    "category": "Bags & Travel",
+    "description": "Waterproof laptop backpack with dedicated 15.6-inch padded sleeve, USB charging port, and multiple organized compartments."
+  },
+  {
+    "product_id": "P016",
+    "title": "Polarized Sunglasses UV400 Unisex",
+    "category": "Accessories",
+    "description": "Polarized sunglasses with UV400 protection. Lightweight TR90 frame. Reduces glare for driving and outdoor activities."
+  },
+  {
+    "product_id": "P017",
+    "title": "Wireless Charging Pad Fast Charge 15W",
+    "category": "Electronics",
+    "description": "15W Qi-certified wireless charging pad compatible with iPhone and Android. Slim profile with LED indicator. Includes USB-C cable."
+  },
+  {
+    "product_id": "P018",
+    "title": "Hardcover Notebook A5 Dot Grid 160 Pages",
+    "category": "Stationery",
+    "description": "Premium hardcover dot grid notebook with 160 pages of 100gsm acid-free paper. Lay-flat binding. Ribbon bookmark and elastic closure."
+  },
+  {
+    "product_id": "P019",
+    "title": "Essential Oil Diffuser 500ml Ultrasonic",
+    "category": "Home & Living",
+    "description": "Ultrasonic cool mist aromatherapy diffuser with 7 LED color modes. Covers up to 500 sq ft. Auto shut-off when water runs out."
+  },
+  {
+    "product_id": "P020",
+    "title": "Throw Pillow Cover 18x18 Linen Set of 2",
+    "category": "Home & Living",
+    "description": "Decorative linen throw pillow covers with hidden zipper. Machine washable. Adds texture and style to any sofa or bed."
+  },
+  {
+    "product_id": "P021",
+    "title": "Scented Soy Candle Vanilla Lavender 8oz",
+    "category": "Home & Living",
+    "description": "Hand-poured 100% natural soy wax candle with cotton wick. Vanilla lavender fragrance. Burns up to 50 hours. Comes in reusable glass jar."
+  },
+  {
+    "product_id": "P022",
+    "title": "Succulent Planter Set Ceramic with Drainage",
+    "category": "Garden & Outdoor",
+    "description": "Set of 3 ceramic succulent planters with drainage holes and saucers. Modern geometric design. Perfect for desk or windowsill."
+  },
+  {
+    "product_id": "P023",
+    "title": "Portable Bluetooth Speaker IPX7 Waterproof",
+    "category": "Electronics",
+    "description": "IPX7 waterproof Bluetooth speaker with 360-degree sound. 20-hour battery life. Floats on water. Built-in mic for calls."
+  },
+  {
+    "product_id": "P024",
+    "title": "Wooden Desk Organizer 5-Compartment Bamboo",
+    "category": "Office Products",
+    "description": "Bamboo desktop organizer with 5 compartments for pens, paper clips, and office supplies. Smooth finish, eco-friendly construction."
+  },
+  {
+    "product_id": "P025",
+    "title": "Smart LED Bulb A19 Color Changing WiFi",
+    "category": "Smart Home",
+    "description": "WiFi-enabled smart LED bulb, 16 million colors. Works with Alexa and Google Home. No hub required. 800 lumens, 9W energy saving."
+  },
+  {
+    "product_id": "P026",
+    "title": "Stainless Steel Mixing Bowls Set of 5 Nesting",
+    "category": "Kitchen & Dining",
+    "description": "Set of 5 stainless steel nesting mixing bowls with lids. Sizes from 1 to 8 quarts. Non-slip base, dishwasher safe."
+  },
+  {
+    "product_id": "P027",
+    "title": "Silicone Kitchen Utensil Set 6-Piece",
+    "category": "Kitchen & Dining",
+    "description": "6-piece silicone cooking utensil set with wooden handles. Heat resistant to 480\u00b0F. Dishwasher safe. Non-scratch for all cookware."
+  },
+  {
+    "product_id": "P028",
+    "title": "Digital Kitchen Scale Stainless Steel 11lb",
+    "category": "Kitchen & Dining",
+    "description": "Precision digital kitchen scale with stainless steel platform. Measures in grams, ounces, pounds, and milliliters. Tare function."
+  },
+  {
+    "product_id": "P029",
+    "title": "Instant-Read Meat Thermometer Digital",
+    "category": "Kitchen & Dining",
+    "description": "Instant-read digital meat thermometer with 2-3 second response. Foldable probe design. Magnetic back for fridge storage."
+  },
+  {
+    "product_id": "P030",
+    "title": "Ceramic Non-Stick Frying Pan 12-inch",
+    "category": "Kitchen & Dining",
+    "description": "Ceramic non-stick frying pan with PFOA-free coating. Compatible with all stovetops including induction. Oven safe to 400\u00b0F."
+  },
+  {
+    "product_id": "P031",
+    "title": "Men's Classic Fit Oxford Button-Down Shirt",
+    "category": "Clothing",
+    "description": "100% cotton classic fit Oxford button-down shirt. Available in multiple colors. Machine washable. Wrinkle-resistant fabric."
+  },
+  {
+    "product_id": "P032",
+    "title": "Women's Athletic Leggings High Waist 7/8",
+    "category": "Clothing",
+    "description": "High-waist 7/8 length athletic leggings with pocket. Four-way stretch moisture-wicking fabric. Squat-proof. Sizes XS-3XL."
+  },
+  {
+    "product_id": "P033",
+    "title": "Mechanical Pencil Set 0.5mm 3-Pack",
+    "category": "Stationery",
+    "description": "Set of 3 mechanical pencils with 0.5mm lead. Comfortable rubber grip. Twist retractable tip. Includes extra lead refills."
+  },
+  {
+    "product_id": "P034",
+    "title": "Gel Ink Pen Set 0.7mm Smooth Writing 10-Pack",
+    "category": "Stationery",
+    "description": "Pack of 10 gel ink pens with smooth 0.7mm tip. Quick-drying ink. Comfortable rubber grip. Great for journaling and note-taking."
+  },
+  {
+    "product_id": "P035",
+    "title": "Phone Stand Adjustable Aluminum Desk Mount",
+    "category": "Electronics",
+    "description": "Aluminum alloy adjustable phone stand with 360-degree rotation. Compatible with all smartphones and mini tablets. Foldable and portable."
+  },
+  {
+    "product_id": "P036",
+    "title": "Portable Power Bank 20000mAh Fast Charge",
+    "category": "Electronics",
+    "description": "20000mAh portable power bank with 22.5W fast charging. Dual USB-A and USB-C ports. LED display shows battery level. TSA approved."
+  },
+  {
+    "product_id": "P037",
+    "title": "Acrylic Paint Set 24 Colors Artist Grade",
+    "category": "Arts & Crafts",
+    "description": "24-color professional acrylic paint set with rich pigmentation. Non-toxic, quick-drying. Works on canvas, paper, wood, and fabric."
+  },
+  {
+    "product_id": "P038",
+    "title": "Watercolor Brush Set 15-Piece Professional",
+    "category": "Arts & Crafts",
+    "description": "Set of 15 professional watercolor brushes with kolinsky-blend tips. Various sizes from liner to flat wash. Comfortable wooden handles."
+  },
+  {
+    "product_id": "P039",
+    "title": "Sketch Book 9x12 Hardcover 200 Sheets",
+    "category": "Arts & Crafts",
+    "description": "Hardcover sketch book with 200 sheets of 60lb acid-free drawing paper. Lay-flat spiral binding. Perforated pages for easy removal."
+  },
+  {
+    "product_id": "P040",
+    "title": "Folding Camping Chair Lightweight Portable",
+    "category": "Garden & Outdoor",
+    "description": "Lightweight folding camp chair supports up to 300 lbs. Breathable mesh backrest. Includes carry bag. Sets up in seconds."
+  },
+  {
+    "product_id": "P041",
+    "title": "Insulated Lunch Bag Large Capacity Bento",
+    "category": "Kitchen & Dining",
+    "description": "Large insulated lunch bag with leak-proof interior. Multiple pockets for utensils and snacks. Adjustable shoulder strap."
+  },
+  {
+    "product_id": "P042",
+    "title": "LED Desk Lamp with USB Charging Port",
+    "category": "Office Products",
+    "description": "LED desk lamp with 5 color temperatures and 5 brightness levels. Built-in USB charging port. Touch control with memory function."
+  },
+  {
+    "product_id": "P043",
+    "title": "Ergonomic Mouse Vertical Wireless 2.4GHz",
+    "category": "Electronics",
+    "description": "Vertical ergonomic wireless mouse reduces wrist strain. 2.4GHz connection with nano receiver. 3 adjustable DPI levels. 18-month battery life."
+  },
+  {
+    "product_id": "P044",
+    "title": "Blackout Curtains 52x84 Noise Reducing",
+    "category": "Home & Living",
+    "description": "Room-darkening blackout curtains with noise-reducing properties. Triple weave fabric blocks 99% of light. Includes 2 panels."
+  },
+  {
+    "product_id": "P045",
+    "title": "Electric Toothbrush Rechargeable Sonic",
+    "category": "Personal Care",
+    "description": "Rechargeable sonic electric toothbrush with 31,000 strokes per minute. 2-minute timer with quad-pacer. Includes 2 brush heads."
+  },
+  {
+    "product_id": "P046",
+    "title": "Foam Roller High Density 18-inch for Muscles",
+    "category": "Sports & Fitness",
+    "description": "High-density foam roller for muscle recovery and myofascial release. Textured surface for deep tissue massage. 18x6 inches."
+  },
+  {
+    "product_id": "P047",
+    "title": "Jump Rope Speed Bearing Adjustable Steel Cable",
+    "category": "Sports & Fitness",
+    "description": "Speed jump rope with ball-bearing handles and adjustable steel cable. Ideal for CrossFit and cardio training. Ergonomic foam grips."
+  },
+  {
+    "product_id": "P048",
+    "title": "Stainless Steel Spice Rack Organizer 2-Tier",
+    "category": "Kitchen & Dining",
+    "description": "2-tier stainless steel spice rack organizer for countertop or cabinet. Holds up to 20 spice jars. Easy assembly, rust-resistant."
+  },
+  {
+    "product_id": "P049",
+    "title": "Portable Mini Projector 1080P WiFi Bluetooth",
+    "category": "Electronics",
+    "description": "1080P native resolution mini projector with WiFi and Bluetooth. 200-inch projection. Built-in battery for 2 hours cordless use."
+  },
+  {
+    "product_id": "P050",
+    "title": "Bamboo Bath Towel Set 6-Piece Ultra Soft",
+    "category": "Bath & Body",
+    "description": "6-piece bamboo and cotton blend bath towel set. Ultra-soft, highly absorbent, and quick-drying. Includes 2 bath, 2 hand, 2 washcloths."
+  }
+]
