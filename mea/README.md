@@ -1,28 +1,30 @@
-# IRS — Image Retrieval System: Amazon-Style Product Page Generator
+# IRS — Image Retrieval System
 
-Upload a product image → get a fully written Amazon-style product listing powered by CLIP + FAISS + Claude API.
+Upload a product image → get a fully written Amazon-style product listing powered by **CLIP + FAISS + Gemini AI**.
+
+---
 
 ## Architecture
 
 ```
-User uploads image (JPG/PNG)
+User uploads image (JPG / PNG / WebP)
         │
         ▼
- CLIP ViT-B/32 (openai/clip-vit-base-patch32)
- → L2-normalized 512-dim image embedding
+ CLIP ViT-B/32  →  512-dim L2-normalized image embedding
         │
         ▼
- FAISS IndexFlatIP
- → Top-K cosine similarity search over pre-indexed product catalog
+ FAISS IndexFlatIP  →  Top-K cosine similarity search over product catalog
         │
         ▼
  Claude API (claude-sonnet-4-6)
- ├── Vision: describe uploaded image
- └── Text: generate title, bullets, description, keywords
+ ├── Vision : describe the uploaded image
+ └── Text   : generate title · bullets · description · keywords
         │
         ▼
- Amazon-style product page (JSON + HTML)
+ Amazon-style product page rendered in React + Tailwind CSS
 ```
+
+---
 
 ## Tech Stack
 
@@ -30,70 +32,133 @@ User uploads image (JPG/PNG)
 |---|---|
 | Image Embeddings | CLIP ViT-B/32 (HuggingFace Transformers) |
 | Vector Search | FAISS (Facebook, CPU) |
-| Text & Vision AI | Claude API (claude-sonnet-4-6) |
+| AI (Vision + Text) | Google Gemini API — `gemini-2.0-flash` |
 | Backend | FastAPI + Uvicorn |
-| Frontend | Streamlit |
-| Dataset | 50-product sample (extendable to 50K+) |
+| Frontend | React 19 + Vite + Tailwind CSS |
+| Dataset | 50-product sample (extendable to 50 K+) |
 
-## Setup
+---
 
-### 1. Install dependencies
+## Prerequisites
+
+- Python 3.10+
+- Node.js 18+
+- An **Anthropic API key** (only external credential needed)
+
+---
+
+## Step 1 — Get your Gemini API Key
+
+1. Go to [aistudio.google.com](https://aistudio.google.com) → **Get API Key**
+2. Create a new key and copy it (it's free to start)
+
+---
+
+## Step 2 — Configure environment variables
+
+```bash
+cd mea
+cp .env.example .env
+```
+
+Open `.env` and fill in your key:
+
+```env
+GEMINI_API_KEY=AIzaSy-xxxxxxxxxxxxxxxx
+BACKEND_URL=http://localhost:8000
+```
+
+> `BACKEND_URL` is only used if you deploy the backend remotely. Leave it as-is for local development.
+
+---
+
+## Step 3 — Install Python dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Set your Anthropic API key
-```bash
-cp .env.example .env
-# Edit .env and add your ANTHROPIC_API_KEY
-```
+---
 
-### 3. Build the FAISS index
+## Step 4 — Build the FAISS index
+
+This embeds the 50 sample products using CLIP text encodings and saves to `data/faiss.index`. Run it **once** before starting the backend.
+
 ```bash
 python scripts/build_index.py
 ```
-This embeds 50 sample products using CLIP text embeddings and saves to `data/faiss.index`.
 
-### 4. Start the backend
+---
+
+## Step 5 — Start the backend
+
 ```bash
 uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### 5. Start the frontend (new terminal)
+Backend runs at: `http://localhost:8000`
+Interactive API docs: `http://localhost:8000/docs`
+
+---
+
+## Step 6 — Start the frontend
+
+Open a **new terminal**:
+
 ```bash
-streamlit run frontend/app.py --server.port 8501
+cd frontend
+npm install
+npm run dev
 ```
 
-Then open: `http://localhost:8501`
+Frontend runs at: `http://localhost:5173`
+
+> **Optional:** If your backend runs on a different host/port, create `frontend/.env`:
+> ```env
+> VITE_API_URL=http://your-backend-host:8000
+> ```
+> If not set, it defaults to `http://localhost:8000`.
+
+---
+
+## Usage
+
+1. Open `http://localhost:5173` in your browser
+2. Drag & drop (or click to browse) a product image — JPG, PNG, or WebP, max 10 MB
+3. Adjust the **Top-K** slider (how many similar products to retrieve)
+4. Click **Generate Product Page**
+5. Get back: product title, bullet features, full description, SEO keywords, and similar products sidebar
+
+---
 
 ## API Endpoints
 
 | Method | Path | Description |
 |---|---|---|
-| `POST` | `/api/generate` | Upload image → product page |
-| `GET` | `/api/health` | Health check + index stats |
+| `POST` | `/api/generate` | Upload image → product page JSON |
+| `GET` | `/api/health` | Health check + FAISS index stats |
 | `POST` | `/api/rebuild-index` | Rebuild FAISS index from sample data |
 
 ### Example with curl
+
 ```bash
 curl -X POST http://localhost:8000/api/generate \
   -F "file=@product.jpg" \
   -F "top_k=5"
 ```
 
-## How the IR Part Works
-
-1. **Indexing Phase:** Products are embedded using CLIP text encoder (`title + category + description`) → stored in FAISS IndexFlatIP
-2. **Query Phase:** User image → CLIP image encoder → 512-dim vector
-3. **Retrieval:** FAISS inner product search (cosine similarity on L2-normalized vectors) → top-K products
-4. **Re-ranking:** Results ranked by cosine similarity score
-5. **Evaluation Metrics:** Precision@K, Recall@K, MRR (Mean Reciprocal Rank)
+---
 
 ## Extending the Dataset
 
-Replace `data/sample_products.json` with a larger product catalog (Amazon Berkeley Objects, etc.) and run `python scripts/build_index.py` to re-index.
+Replace `data/sample_products.json` with a larger catalog (e.g. Amazon Berkeley Objects) and re-run:
+
+```bash
+python scripts/build_index.py
+```
 
 Each product entry format:
+
 ```json
 {
   "product_id": "P001",
@@ -102,3 +167,12 @@ Each product entry format:
   "description": "Product description text..."
 }
 ```
+
+---
+
+## How the Retrieval Works
+
+1. **Indexing:** Products embedded via CLIP text encoder (`title + category + description`) → stored in FAISS `IndexFlatIP`
+2. **Query:** Uploaded image → CLIP image encoder → 512-dim vector
+3. **Search:** FAISS inner-product search on L2-normalized vectors = cosine similarity → top-K results
+4. **Generation:** Top-K results + Claude vision description → Claude generates the full listing

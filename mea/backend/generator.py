@@ -1,42 +1,61 @@
 """
-Content generation using Claude API.
+Content generation using Google Gemini API.
 Produces Amazon-style product pages from retrieved product context.
 """
 
+import io
+import json
 import os
+import re
 from typing import List
 
-import anthropic
+import google.generativeai as genai
+from PIL import Image
 
 from backend.models import ProductPage, RetrievedProduct
 
-_client: anthropic.Anthropic | None = None
+_model = None
 
 
-def get_client() -> anthropic.Anthropic:
-    global _client
-    if _client is None:
-        api_key = os.getenv("ANTHROPIC_API_KEY")
+def get_model() -> genai.GenerativeModel:
+    global _model
+    if _model is None:
+        api_key = os.getenv("GEMINI_API_KEY")
         if not api_key:
-            raise ValueError("ANTHROPIC_API_KEY environment variable not set.")
-        _client = anthropic.Anthropic(api_key=api_key)
-    return _client
+            raise ValueError("GEMINI_API_KEY environment variable not set.")
+        genai.configure(api_key=api_key)
+        _model = genai.GenerativeModel("gemini-2.0-flash")
+    return _model
+
+
+def _extract_json(text: str) -> dict:
+    """Strip markdown fences and parse JSON from Gemini's response."""
+    cleaned = re.sub(r"^```[a-z]*\n?", "", text.strip(), flags=re.IGNORECASE)
+    cleaned = re.sub(r"\n?```$", "", cleaned.strip())
+    return json.loads(cleaned.strip())
+
+
+def describe_image_with_gemini(image: Image.Image) -> str:
+    """
+    Use Gemini vision to get a brief description of the uploaded product image.
+    Accepts a PIL Image directly.
+    """
+    model = get_model()
+    response = model.generate_content([
+        image,
+        "Describe this product image in 1-2 concise sentences suitable for an e-commerce listing. "
+        "Focus on the object, its color, material, and key visual features.",
+    ])
+    return response.text.strip()
 
 
 def generate_product_page(
     image_description: str,
     retrieved: List[RetrievedProduct],
 ) -> ProductPage:
-    """
-    Use Claude to generate an Amazon-style product page.
+    """Use Gemini to generate an Amazon-style product page."""
+    model = get_model()
 
-    Args:
-        image_description: Short visual description of the uploaded image.
-        retrieved: Top-K similar products from FAISS retrieval.
-    """
-    client = get_client()
-
-    # Build context from retrieved products
     context_lines = []
     for i, p in enumerate(retrieved, 1):
         context_lines.append(
@@ -73,23 +92,8 @@ Guidelines:
 - Description: Engaging, customer-focused, highlight use cases
 - Keywords: Mix broad and specific SEO terms relevant to the product"""
 
-    message = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=2048,
-        messages=[{"role": "user", "content": prompt}],
-    )
-
-    raw = message.content[0].text.strip()
-
-    # Strip markdown code fences if present
-    if raw.startswith("```"):
-        raw = raw.split("```")[1]
-        if raw.startswith("json"):
-            raw = raw[4:]
-        raw = raw.strip()
-
-    import json
-    data = json.loads(raw)
+    response = model.generate_content(prompt)
+    data = _extract_json(response.text.strip())
 
     return ProductPage(
         title=data["title"],
@@ -99,35 +103,3 @@ Guidelines:
         keywords=data["keywords"],
         retrieved_references=retrieved,
     )
-
-
-def describe_image_with_claude(image_b64: str) -> str:
-    """
-    Use Claude's vision to get a brief description of the uploaded product image.
-    This description is then used as part of the generation prompt.
-    """
-    client = get_client()
-    message = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=256,
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "image",
-                        "source": {
-                            "type": "base64",
-                            "media_type": "image/jpeg",
-                            "data": image_b64,
-                        },
-                    },
-                    {
-                        "type": "text",
-                        "text": "Describe this product image in 1-2 concise sentences suitable for an e-commerce listing. Focus on the object, its color, material, and key visual features.",
-                    },
-                ],
-            }
-        ],
-    )
-    return message.content[0].text.strip()
